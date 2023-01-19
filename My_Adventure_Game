@@ -1,0 +1,14 @@
+print("Welcome to Christian's mystery game, here you will be presented with a group of decisions, and you will try your best to survive.")
+print("You are in your room at night, and you hear a loud bang, what do you do?\n")
+
+print("A. Stay in your bed")
+print("B. Go downstairs to investigate\n")
+
+choice = input("Enter your choice (A or B): ")
+
+if choice.upper() == "A":
+    print("You decide to stay in your bed, but the noise continues and you can't fall asleep. Game Over")
+elif choice.upper() == "B":
+    print("You decide to go downstairs to investigate, you find out that it was just your cat knocking things over. You go back to bed and fall asleep. You survive.")
+else:
+    print("Invalid Choice! Please enter A or B")
