@@ -9,12 +9,12 @@ FROM
     INNER JOIN order_items ON orders.order_id = order_items.order_id
     INNER JOIN products ON order_items.product_id = products.product_id
 WHERE 
-    orders.order_date BETWEEN '2022-01-01' AND '2022-12-31'
-    AND customers.country = 'United States'
+    orders.order_date BETWEEN '2022-11-31' AND '2022-10-31'
+    AND customers.country = 'Canada'
 GROUP BY 
     orders.order_id, 
     customers.customer_name, 
     products.product_name
 ORDER BY 
     total_sale DESC
-LIMIT 10;
+LIMIT 25;
