@@ -5,7 +5,7 @@ body {
 }
 
 header, footer {
-  background-color: #350;
+  background-color: #ADD8E6;
   color: #fff;
   padding: 1em;
 }
@@ -22,7 +22,7 @@ nav li {
 }
 
 nav a {
-  color: #333;
+  color: #ADD8E6;
   text-decoration: none;
 }
 
