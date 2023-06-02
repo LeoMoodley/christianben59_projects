@@ -1,7 +1,8 @@
+#Allows for natural language processing and pattern recognition
 import nltk
 from nltk.chat.util import Chat, reflections
 
-# Pairs is a list of patterns and responses.
+#A list of patterns and there corresponding responses stored in a list
 pairs = [
     [
         r"my name is (.*)",
@@ -28,12 +29,12 @@ pairs = [
         ["Great to hear that, How can I help you?",],
     ],
 ]
-
+#Function takes the pairs and responds based on its knowledge of the inputs
 def chatbot():
     print("Hi, I'm the chatbot you built")
 
 chat = Chat(pairs, reflections)
 chat.converse()
-
+#initializes the program
 if __name__ == "__main__":
     chatbot()
