@@ -1,3 +1,4 @@
+def introduction ():
 print("It is 1:00 AM, and you are in your bed sound asleep")
 print("\n You suddenly hear and bang coming from downstairs")
 print("\n What do you do? ")
