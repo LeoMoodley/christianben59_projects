@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.cluster import KMeans
-
+#Import neccesary packages that allow program to automate the processes
+#Class contains all the main operations of the algorithm
 class BookkeepingService:
 
     def __init__(self):
