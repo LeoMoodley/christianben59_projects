@@ -1,31 +1,22 @@
 import pandas as pd
-from sklearn.cluster import KMeans
-#Import neccesary packages that allow program to automate the processes
-#Class contains all the main operations of the algorithm
+from scipy import stats
+import numpy as np
+
 class BookkeepingService:
 
     def __init__(self):
-        # We can initialize an empty DataFrame to keep track of expenses
         self.expenses = pd.DataFrame(columns=['expense', 'category', 'amount'])
 
     def add_expense(self, expense, category, amount):
-        # We can add a new expense to the DataFrame
         self.expenses = self.expenses.append({'expense': expense, 'category': category, 'amount': amount}, ignore_index=True)
     
     def track_expenses(self):
-        # Let's summarize expenses by category
         return self.expenses.groupby('category').sum()
 
-    def detect_unusual_expenses(self, clusters=3):
-        # Let's use KMeans clustering to group expenses and detect any unusual expenses (outliers)
-        model = KMeans(n_clusters=clusters, random_state=42)
-        self.expenses['cluster'] = model.fit_predict(self.expenses[['amount']])
-        
-        # Any cluster with significantly fewer expenses might be considered 'unusual'
-        cluster_counts = self.expenses['cluster'].value_counts()
-        unusual_clusters = cluster_counts[cluster_counts < cluster_counts.mean()].index
-        
-        return self.expenses[self.expenses['cluster'].isin(unusual_clusters)]
+    def detect_unusual_expenses(self, threshold=2):
+        self.expenses['z_score'] = np.abs(stats.zscore(self.expenses['amount']))
+        unusual_expenses = self.expenses[self.expenses['z_score'] > threshold]
+        return unusual_expenses
 
 
 # To use this service
@@ -39,3 +30,4 @@ service.add_expense('Restaurant', 'Food', 500)
 
 print(service.track_expenses())
 print(service.detect_unusual_expenses())
+
