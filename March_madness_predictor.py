@@ -7,8 +7,6 @@ from sklearn.metrics import accuracy_score, classification_report
 # Load the CSV data into a pandas DataFrame
 df = pd.read_csv('March Madness Data/2023 Game Data.csv')
 
-# Data cleaning, preprocessing, and feature engineering code here...
-
 # The 5 categories that you want to use
 selected_features = ['KENPOM ADJUSTED EFFICIENCY', 'BARTTORVIK ADJUSTED EFFICIENCY', 
                      'EFG %', 'EFG % DEFENSE', 'POINTS PER POSSESSION OFFENSE', 
@@ -16,10 +14,11 @@ selected_features = ['KENPOM ADJUSTED EFFICIENCY', 'BARTTORVIK ADJUSTED EFFICIEN
 
 df_X = df[selected_features]
 
-if 'target' in df.columns:
-    df_y = df['target']
+# Replace 'Game Result' with the name of the column that indicates the result
+if 'Game Result' in df.columns:
+    df_y = df['Game Result']
 else:
-    df_y = None
+    raise ValueError("Target column 'Game Result' not found in DataFrame")
 
 # Standardize the features
 scaler = StandardScaler()
