@@ -22,11 +22,11 @@ class BookkeepingService:
 # To use this service
 service = BookkeepingService()
 
-service.add_expense('Rent', 'Housing', 1000)
-service.add_expense('Electricity', 'Utilities', 150)
-service.add_expense('Internet', 'Utilities', 80)
-service.add_expense('Groceries', 'Food', 200)
-service.add_expense('Restaurant', 'Food', 500)
+service.add_expense('Rent', 'Housing', 1200)
+service.add_expense('Electricity', 'Utilities', 100)
+service.add_expense('Internet', 'Utilities', 50)
+service.add_expense('Groceries', 'Food', 300)
+service.add_expense('Restaurant', 'Food', 200)
 
 print(service.track_expenses())
 print(service.detect_unusual_expenses())
